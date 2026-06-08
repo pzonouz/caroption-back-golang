@@ -1,0 +1,36 @@
+version: "2"
+linters:
+  linters:
+  default: all
+  disable:
+    - revive
+    - gosec
+    - exhaustruct
+    - wrapcheck
+    - depguard
+    - wsl
+    - errcheck
+    - mnd
+    - varnamelen
+    - ireturn
+    - noinlineerr
+    - inamedparam
+    - dupl
+    - funlen
+    - tagalign
+    - lll
+    - gochecknoglobals
+    - forcetypeassert
+    - godot
+    - cyclop
+    - prealloc
+# formatters:
+#   option: value
+# issues:
+#   option: value
+# output:
+#   option: value
+# run:
+#   option: value
+# severity:
+#   option: value

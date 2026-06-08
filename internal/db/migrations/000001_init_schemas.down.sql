@@ -1,0 +1,34 @@
+DROP TRIGGER IF EXISTS trg_check_voucher_date_order ON vouchers;
+DROP TRIGGER IF EXISTS trg_prevent_bad_insert ON invoices;
+DROP TRIGGER IF EXISTS trg_prevent_bad_insert ON vouchers;
+
+DROP FUNCTION IF EXISTS check_voucher_date_order();
+DROP FUNCTION IF EXISTS prevent_bad_insert();
+
+DROP TABLE IF EXISTS checks CASCADE;
+DROP TABLE IF EXISTS check_bands CASCADE;
+DROP TABLE IF EXISTS voucher_items CASCADE;
+DROP TABLE IF EXISTS invoice_items CASCADE;
+DROP TABLE IF EXISTS invoices CASCADE;
+DROP TABLE IF EXISTS vouchers CASCADE;
+DROP TABLE IF EXISTS product_parameter_values CASCADE;
+DROP TABLE IF EXISTS parameters CASCADE;
+DROP TABLE IF EXISTS parameter_groups CASCADE;
+DROP TABLE IF EXISTS articles CASCADE;
+DROP TABLE IF EXISTS images CASCADE;
+DROP TABLE IF EXISTS products CASCADE;
+DROP TABLE IF EXISTS brands CASCADE;
+DROP TABLE IF EXISTS entities CASCADE;
+DROP TABLE IF EXISTS categories CASCADE;
+DROP TABLE IF EXISTS banks CASCADE;
+DROP TABLE IF EXISTS persons CASCADE;
+DROP TABLE IF EXISTS accounts CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS settings CASCADE;
+
+DROP TYPE IF EXISTS invoice_status_enum;
+DROP TYPE IF EXISTS invoice_type;
+DROP TYPE IF EXISTS check_status_enum;
+DROP TYPE IF EXISTS payment_method_enum;
+DROP TYPE IF EXISTS transaction_type_enum;
+DROP TYPE IF EXISTS voucher_status_enum;
