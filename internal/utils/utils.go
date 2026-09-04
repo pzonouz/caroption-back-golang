@@ -267,7 +267,7 @@ type QueryParams struct {
 }
 
 // BuildOrderBy generates the ORDER BY clause
-func BuildOrderBy(entitiy string, sort string, sortDirection string) string {
+func BuildOrderBy(entity string, sort string, sortDirection string) string {
 	if sort == "" {
 		return ""
 	}
@@ -278,33 +278,33 @@ func BuildOrderBy(entitiy string, sort string, sortDirection string) string {
 
 	switch sort {
 	case "voucher_number":
-		return `ORDER BY ` + entitiy + `.voucher_number::bigint ` + sortDirection
+		return `ORDER BY ` + entity + `.voucher_number::bigint ` + sortDirection
 	case "number":
-		return `ORDER BY ` + entitiy + `.number::bigint ` + sortDirection
+		return `ORDER BY ` + entity + `.number::bigint ` + sortDirection
 	case "date":
-		return `ORDER BY ` + entitiy + `.date::date ` + sortDirection
+		return `ORDER BY ` + entity + `.date::date ` + sortDirection
 	case "category_name":
 		return `ORDER BY categories.name COLLATE "fa-IR-x-icu"` + sortDirection
 	case "created_at":
-		return `ORDER BY ` + entitiy + `.created_at::date ` + sortDirection
+		return `ORDER BY ` + entity + `.created_at::date ` + sortDirection
 	case "updated_at":
-		return `ORDER BY ` + entitiy + `.updated_at::date ` + sortDirection
+		return `ORDER BY ` + entity + `.updated_at::date ` + sortDirection
 	case "buy_price":
-		return `ORDER BY COALESCE(REPLACE(` + entitiy + `.buy_price,',',''),'')::bigint ` + sortDirection
+		return `ORDER BY COALESCE(REPLACE(` + entity + `.buy_price,',',''),'')::bigint ` + sortDirection
 	case "sell_price":
-		return `ORDER BY COALESCE(REPLACE(` + entitiy + `.sell_price,',',''),'')::bigint ` + sortDirection
+		return `ORDER BY COALESCE(REPLACE(` + entity + `.sell_price,',',''),'')::bigint ` + sortDirection
 	case "code":
-		return `ORDER BY COALESCE(` + entitiy + `.code,'','0')::bigint ` + sortDirection
+		return `ORDER BY COALESCE(` + entity + `.code,'','0')::bigint ` + sortDirection
 	case "count":
-		return `ORDER BY REPLACE(COALESCE(` + entitiy + `.count,'0'),',','')::bigint ` + sortDirection
+		return `ORDER BY REPLACE(COALESCE(` + entity + `.count,'0'),',','')::bigint ` + sortDirection
 	case "is_service":
-		return `ORDER BY COALESCE(` + entitiy + `.is_service,'FALSE') ` + sortDirection
+		return `ORDER BY COALESCE(` + entity + `.is_service,'FALSE') ` + sortDirection
 	case "generated":
-		return `ORDER BY COALESCE(` + entitiy + `.generated,'FALSE') ` + sortDirection
+		return `ORDER BY COALESCE(` + entity + `.generated,'FALSE') ` + sortDirection
 	case "position":
-		return `ORDER BY COALESCE(` + entitiy + `.position,'') ` + sortDirection
+		return `ORDER BY COALESCE(` + entity + `.position,'') ` + sortDirection
 	default:
-		return fmt.Sprintf(`ORDER BY %s.%s COLLATE "fa-IR-x-icu" %s`, entitiy, sort, sortDirection)
+		return fmt.Sprintf(`ORDER BY %s.%s COLLATE "fa-IR-x-icu" %s`, entity, sort, sortDirection)
 	}
 }
 
